@@ -1,15 +1,29 @@
-import { Outlet } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import App from './App';
+import Home from "./components/Home";
+import About from "./components/About";
+import Login from "./components/Login";
 
-function App() {
 
+const routes = [
+    {
+        path: '/',
+        element: <App />,
+        children: [
+            {
+                path: '/',
+                element: <Home />
+            }, 
+            {
+                path: '/about',
+                element: <About />
+            },  
+            {
+                path: '/login',
+                element: <Login />
+            }, 
+        ]
+    }
 
-  return (
-    <div className="app">
-      <NavBar />
-      <Outlet />
-    </div>
-  );
-}
+]
 
-export default App;
+export default routes;
